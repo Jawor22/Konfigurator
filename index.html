@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ENATRUCK - Konfigurator</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            color: white;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.55)
+                ),
+                url("tlo.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            background-attachment: fixed;
+        }
+
+        .start-screen {
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            padding: 80px 20px;
+
+            text-align: center;
+        }
+
+        .logo {
+            font-size: clamp(50px, 9vw, 90px);
+
+            font-weight: 900;
+
+            letter-spacing: 8px;
+
+            margin-bottom: 30px;
+
+            text-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.9);
+        }
+
+        .choose-button {
+            padding: 18px 45px;
+
+            border: 1px solid rgba(255, 255, 255, 0.35);
+
+            border-radius: 8px;
+
+            background:
+                rgba(15, 15, 15, 0.75);
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+            backdrop-filter: blur(5px);
+        }
+
+        .choose-button:hover {
+            background:
+                rgba(40, 40, 40, 0.9);
+
+            border-color: white;
+
+            transform: translateY(-3px);
+        }
+
+        .brands {
+            width: 100%;
+
+            max-width: 1000px;
+
+            margin-top: 40px;
+
+            display: none;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .brands.active {
+            display: grid;
+        }
+
+        .brand {
+            height: 105px;
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.2);
+
+            border-radius: 12px;
+
+            background:
+                rgba(10, 10, 10, 0.72);
+
+            color: white;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+            backdrop-filter: blur(5px);
+        }
+
+        .brand:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(255, 255, 255, 0.7);
+
+            background:
+                rgba(40, 40, 40, 0.85);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, 0.6);
+        }
+
+        .accessories {
+            grid-column: 1 / -1;
+
+            height: 75px;
+
+            font-size: 16px;
+
+            color: #ddd;
+        }
+
+        .footer {
+            margin-top: 60px;
+
+            color: rgba(255, 255, 255, 0.5);
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+        }
+
+        @media (max-width: 800px) {
+
+            .brands {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .accessories {
+                grid-column: 1 / -1;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .brands {
+                grid-template-columns: 1fr;
+            }
+
+            .accessories {
+                grid-column: auto;
+            }
+
+            .brand {
+                height: 80px;
+            }
+
+        }
+
+    </style>
+
+<link rel="stylesheet" href="premium.css">
+</head>
+
+<body class="home-design">
+<header class="design-header"><a class="design-logo" href="index.html">ENA<span>TRUCK</span></a><span class="header-caption">WYPOSAŻENIE CIĘŻARÓWEK</span><span class="header-edition">KONFIGURATOR / 2026</span></header>
+
+    <main class="start-screen">
+
+<div class="home-intro">
+<p class="design-eyebrow"><span></span> TWÓJ SAMOCHÓD. TWÓJ STYL.</p>
+<h1>Siła tkwi<br>w <em>detalach.</em></h1>
+<p class="design-description">Dopasuj wyposażenie do swojej ciężarówki.<br>Od pierwszej ramy po ostatni reflektor.</p>
+<button class="choose-button" onclick="pokazMarki()">WYBIERZ MARKĘ <span aria-hidden="true">↗</span></button>
+<div class="hero-footnote"><span class="line"></span> Orurowanie &nbsp; / &nbsp; Oświetlenie &nbsp; / &nbsp; Akcesoria</div>
+</div>
+        <div
+            id="brands"
+            class="brands active" aria-label="Wybór marki" tabindex="-1"
+        >
+
+            <button
+                class="brand"
+                onclick="alert('DAF - wkrótce')"
+            >
+                DAF
+            </button>
+
+            <button
+                class="brand"
+                onclick="alert('FORD - wkrótce')"
+            >
+                FORD
+            </button>
+
+            <button
+                class="brand"
+                onclick="alert('IVECO - wkrótce')"
+            >
+                IVECO
+            </button>
+
+            <button
+                class="brand"
+                onclick="alert('MAN - wkrótce')"
+            >
+                MAN
+            </button>
+
+            <button
+                class="brand featured-brand"
+                onclick="otworzMercedes()"
+            >
+                MERCEDES
+            </button>
+
+            <button
+                class="brand"
+                onclick="alert('RENAULT - wkrótce')"
+            >
+                RENAULT
+            </button>
+
+            <button
+                class="brand"
+                onclick="alert('SCANIA - wkrótce')"
+            >
+                SCANIA
+            </button>
+
+            <button
+                class="brand"
+                onclick="alert('VOLVO - wkrótce')"
+            >
+                VOLVO
+            </button>
+
+            <button
+                class="brand accessories"
+                onclick="alert('AKCESORIA - wkrótce')"
+            >
+                AKCESORIA
+            </button>
+
+        </div>
+
+        <div class="footer">
+            <span>ENATRUCK / KONFIGURATOR</span><span>Twój wybór. Nasze doświadczenie.</span>
+        </div>
+
+    </main>
+
+    <script>
+
+        function pokazMarki() {
+
+            const brands =
+                document.getElementById("brands");
+
+            brands.classList.add("active");
+            brands.scrollIntoView({ behavior: "smooth", block: "center" });
+            brands.focus({ preventScroll: true });
+
+        }
+
+        function otworzMercedes() {
+
+            window.location.href =
+                "Mercedes/Index.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

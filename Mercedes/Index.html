@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ENATRUCK — Mercedes</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    #303030 0%,
+                    #151515 40%,
+                    #080808 80%
+                );
+        }
+
+        .page {
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            padding: 70px 25px;
+        }
+
+        .logo {
+            font-size: 18px;
+
+            font-weight: 800;
+
+            letter-spacing: 5px;
+
+            color: #777;
+
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 7vw, 70px);
+
+            font-weight: 900;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            text-align: center;
+        }
+
+        .subtitle {
+            margin-top: 18px;
+
+            color: #888;
+
+            font-size: 17px;
+
+            letter-spacing: 1px;
+
+            text-align: center;
+        }
+
+        .separator {
+            width: 100px;
+
+            height: 2px;
+
+            background: #555;
+
+            margin: 45px 0;
+        }
+
+        .models {
+            width: 100%;
+
+            max-width: 850px;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .model {
+            height: 180px;
+
+            border: 1px solid #333;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #222,
+                    #111
+                );
+
+            color: white;
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .model:hover {
+            transform: translateY(-6px);
+
+            border-color: #777;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #303030,
+                    #171717
+                );
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .model:active {
+            transform: translateY(-2px);
+        }
+
+        .model-small {
+            display: block;
+
+            margin-top: 12px;
+
+            font-size: 12px;
+
+            font-weight: 400;
+
+            letter-spacing: 2px;
+
+            color: #777;
+        }
+
+        .back {
+            margin-top: 45px;
+
+            padding: 12px 25px;
+
+            border: 1px solid #333;
+
+            border-radius: 8px;
+
+            background: #151515;
+
+            color: #aaa;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .back:hover {
+            color: white;
+
+            border-color: #666;
+
+            background: #222;
+        }
+
+        @media (max-width: 600px) {
+
+            .models {
+                grid-template-columns: 1fr;
+            }
+
+            .model {
+                height: 140px;
+
+                font-size: 20px;
+            }
+
+        }
+
+    </style>
+
+<link rel="stylesheet" href="../premium.css">
+</head>
+
+<body class="model-design">
+<header class="design-header"><a class="design-logo" href="../index.html">ENA<span>TRUCK</span></a><span class="header-caption">WYPOSAŻENIE CIĘŻARÓWEK</span><a class="design-header-back" href="../index.html">← Wszystkie marki</a></header>
+
+    <main class="page">
+
+<p class="design-eyebrow">01 / MERCEDES-BENZ &nbsp; — &nbsp; WYBÓR MODELU</p>
+
+        <h1>
+            MERCEDES
+        </h1>
+
+        <p class="subtitle">
+            Wybierz model. Nadaj mu swój charakter.
+        </p>
+
+        <div class="separator"></div>
+
+        <div class="models">
+
+            <button
+                class="model model-actros"
+                onclick="wybierzModel('actros')"
+            >
+
+                <span class="model-index">01 / ACTROS</span><span class="model-name">Actros MP4 / MP5</span><span class="model-arrow" aria-hidden="true">↗</span>
+
+                <span class="model-small">W przygotowaniu — wkrótce
+                </span>
+
+            </button>
+
+            <button
+                class="model model-procabin"
+                onclick="wybierzModel('procabin')"
+            >
+
+<span class="model-index">02 / NOWA GENERACJA</span><span class="model-name">ProCabin</span><span class="model-arrow" aria-hidden="true">↗</span>
+
+                <span class="model-small">Otwórz konfigurator
+                </span>
+
+            </button>
+
+        </div>
+
+        <button
+            class="back"
+            onclick="powrot()"
+        >
+
+            ← WRÓĆ
+
+        </button>
+
+    </main>
+
+    <script>
+
+        function wybierzModel(model) {
+
+            if (model === "actros") {
+
+                alert("Konfigurator ACTROS MP4 / MP5 — wkrótce");
+
+            }
+
+            if (model === "procabin") {
+
+                window.location.href = "ProCabin/index.html.html";
+
+            }
+
+        }
+
+        function powrot() {
+
+            window.location.href = "../index.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
